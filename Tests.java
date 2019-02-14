@@ -16,7 +16,7 @@ public class Tests {
 		//if line contains an id then put it in brackets with a space.
 		assertEquals("    \"id\": 23, must be [23] ", "[23] ",OutputFormat.getID("    \"id\":23,"));
 		//if line does not contain the full id field then it will return null.
-		assertEquals("    \"i 23, must be [23] ", null,OutputFormat.getID("    \"i23,"));
+		assertEquals("    \"i 23, must be null", null,OutputFormat.getID("    \"i23,"));
 		//Checking to see that no NullPointerException occurs.
 		assertEquals("null, must be null with no NullPointerException", null,OutputFormat.getID(null));
 	}
@@ -27,7 +27,7 @@ public class Tests {
 		//if line contains a title then it will be extracted with no other characters.
 		assertEquals("    \"title\": Hello test must be Hello test","Hello test", OutputFormat.getTitle("    \"title\": Hello test"));
 		//if line does not contain full title field, then it will return null.
-		assertEquals("    \"title\": Hello test must be Hello test",null, OutputFormat.getTitle("    \"tit Hello test"));
+		assertEquals("    \"tit Hello test must be null",null, OutputFormat.getTitle("    \"tit Hello test"));
 		//Checking to see that no NullPointerException occurs.
 		assertEquals("null must be null",null, OutputFormat.getTitle(null));
 		
